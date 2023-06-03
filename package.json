@@ -21,8 +21,7 @@
     "prepare": "husky install",
     "build": "tsup ./src/index.ts --format cjs,esm --dts",
     "release": "pnpm run build && changeset publish",
-    "lint": "tsc",
-    "typecheck": "tsc --noEmit"
+    "lint": "tsc"
   },
   "peerDependencies": {
     "zustand": "^4.3.8"
