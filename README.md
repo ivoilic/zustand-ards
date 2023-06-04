@@ -32,7 +32,7 @@ const useExampleStore = create<ExampleStoreState>()((set) => ({
 This enhances the hook by adding a new style of selector: an array of keys from the provided store. It elimnates the need to use multiple hooks or a complex selector function.
 
 ```ts
-import { enhanceHookWithArraySelector } from 'zustand-ard';
+import { enhanceHookWithArraySelector } from 'zustand-ards';
 
 const useStoreWithArray = enhanceHookWithArraySelector(useExampleStore);
 
@@ -48,7 +48,7 @@ The original selector functionality still works so you can use the hook with eit
 This enhances the hook so access to the provided store is shallow by default. It is effectively the same as passing `shallow` from `zustand/shallow` to the original hook every time.
 
 ```ts
-import { enhanceHookWithDefaultShallow } from 'zustand-ard';
+import { enhanceHookWithDefaultShallow } from 'zustand-ards';
 
 const useShallowStore = enhanceHookWithDefaultShallow(useExampleStore);
 
@@ -71,7 +71,7 @@ const { wizards } = useShallowStore(
 If you want to use multiple zustand-ards hook enhancements together you totally can!
 
 ```ts
-import { enhanceHookWithDefaultShallow, enhanceHookWithArraySelector } from 'zustand-ard';
+import { enhanceHookWithDefaultShallow, enhanceHookWithArraySelector } from 'zustand-ards';
 
 // Make the the hook shallow by default
 const useShallowStore = enhanceHookWithDefaultShallow(useExampleStore);
