@@ -18,7 +18,7 @@ type UseBoundStoreWithArraySelector<S extends StoreApi<unknown>> = {
  * This enhances the hook by adding a new style of selector: an array of keys from the provided store.
  * It elimnates the need to use multiple hooks or a complex selector function.
  */
-export const enhanceHookWithArraySelector = <T>(
+export const withArraySelector = <T>(
   storeHook: UseBoundStore<StoreApi<T>>
 ): UseBoundStoreWithArraySelector<StoreApi<T>> => {
   // Function Overloads

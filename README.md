@@ -1,11 +1,11 @@
 # zustand-ards
 
+A library of simple opinionated utilities for [zustand](https://github.com/pmndrs/zustand). zustand-ards are typesafe and designed to be easily added to an existing codebase to improve the experience of developing with zustand.
+
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ivoilic/zustand-ards/main.yml?branch=main&style=flat&colorA=000000&colorB=000000)](https://github.com/ivoilic/zustand-ards/actions?query=workflow%3ALint)
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-ards?label=bundle%20size&style=flat&colorA=000000&colorB=000000)](https://bundlephobia.com/result?p=zustand-ards)
 [![Version](https://img.shields.io/npm/v/zustand-ards?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/zustand-ards)
 [![Downloads](https://img.shields.io/npm/dt/zustand-ards.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/zustand-ards)
-
-A library of simple opinionated utilities for [zustand](https://github.com/pmndrs/zustand). zustand-ards are typesafe and designed to be easily added to an existing codebase to improve the experience of developing with zustand.
 
 ## 🪝 Hook Enhancements
 
@@ -32,14 +32,14 @@ const useExampleStore = create<ExampleStoreState>()((set) => ({
 
 </details>
 
-### 📝 `enhanceHookWithArraySelector`
+### 📝 `withArraySelector`
 
 This enhances the hook by adding a new style of selector: an array of keys from the provided store. It elimnates the need to use multiple hooks or a complex selector function.
 
 ```ts
-import { enhanceHookWithArraySelector } from 'zustand-ards';
+import { withArraySelector } from 'zustand-ards';
 
-const useStoreWithArray = enhanceHookWithArraySelector(useExampleStore);
+const useStoreWithArray = withArraySelector(useExampleStore);
 
 const { bears, increaseBears } = useStoreWithArray(['bears', 'increaseBears']);
 ```
@@ -48,14 +48,14 @@ The array selector is automatically typed so your IDE should provide hints with 
 
 The original selector functionality still works so you can use the hook with either style of selector.
 
-### 🏊 `enhanceHookWithDefaultShallow`
+### 🏊 `withDefaultShallow`
 
 This enhances the hook so access to the provided store is shallow by default. It is effectively the same as passing `shallow` from `zustand/shallow` to the original hook every time.
 
 ```ts
-import { enhanceHookWithDefaultShallow } from 'zustand-ards';
+import { withDefaultShallow } from 'zustand-ards';
 
-const useShallowStore = enhanceHookWithDefaultShallow(useExampleStore);
+const useShallowStore = withDefaultShallow(useExampleStore);
 
 const { wizards } = useShallowStore((state) => ({ wizards: state.wizards }));
 ```
@@ -76,13 +76,13 @@ const { wizards } = useShallowStore(
 If you want to use multiple zustand-ards hook enhancements together you totally can!
 
 ```ts
-import { enhanceHookWithDefaultShallow, enhanceHookWithArraySelector } from 'zustand-ards';
+import { withDefaultShallow, withArraySelector } from 'zustand-ards';
 
 // Make the the hook shallow by default
-const useShallowStore = enhanceHookWithDefaultShallow(useExampleStore);
+const useShallowStore = withDefaultShallow(useExampleStore);
 
 // Add the optional array selector to the hook
-const useYourCustomStore = enhanceHookWithArraySelector(useShallowStore);
+const useYourCustomStore = withArraySelector(useShallowStore);
 
 // Use your custom hook!
 const { bears, increaseBears } = useYourCustomStore(['bears', 'increaseBears']);
