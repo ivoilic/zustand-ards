@@ -1,5 +1,10 @@
 # zustand-ards
 
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ivoilic/zustand-ards/main.yml?branch=main&style=flat&colorA=000000&colorB=000000)](https://github.com/ivoilic/zustand-ards/actions?query=workflow%3ALint)
+[![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-ards?label=bundle%20size&style=flat&colorA=000000&colorB=000000)](https://bundlephobia.com/result?p=zustand-ards)
+[![Version](https://img.shields.io/npm/v/zustand-ards?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/zustand-ards)
+[![Downloads](https://img.shields.io/npm/dt/zustand-ards.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/zustand-ards)
+
 A library of simple opinionated utilities for [zustand](https://github.com/pmndrs/zustand). zustand-ards are typesafe and designed to be easily added to an existing codebase to improve the experience of developing with zustand.
 
 ## 🪝 Hook Enhancements
