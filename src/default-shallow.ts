@@ -3,10 +3,10 @@ import type { StoreApi, UseBoundStore } from 'zustand';
 import type { ExtractState } from '~/types';
 
 /**
- * Creates a hook that allows for shallow access to the provided store by default.
- * This is effectively the same as passing `shallow` to the original store hook every time.
+ * This enhances the hook so access to the provided store is shallow by default.
+ * It is effectively the same as passing `shallow` from `zustand/shallow` to the original hook every time
  */
-export const createShallowHook = <T>(
+export const enhanceHookWithDefaultShallow = <T>(
   storeHook: UseBoundStore<StoreApi<T>>
 ): UseBoundStore<StoreApi<T>> => {
   // Function overloads

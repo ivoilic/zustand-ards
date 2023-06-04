@@ -4,7 +4,7 @@ export default defineConfig({
   entry: ['./src/**.ts'],
   sourcemap: false,
   splitting: false, // We are manually splitting the files
-  external: ['./shallow', './array-selector', './types', 'zustand'],
+  external: ['./default-shallow', './array-selector', './types', 'zustand'],
   format: ['cjs', 'esm'],
   dts: true,
   clean: true,
