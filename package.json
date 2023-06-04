@@ -1,6 +1,6 @@
 {
   "name": "zustand-ards",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "Ivo Ilic",
   "license": "MIT",
@@ -19,7 +19,13 @@
     "url": "git+https://github.com/ivoilic/zustand-ards.git"
   },
   "files": [
-    "**"
+    "./package.json",
+    "LICENSE",
+    "README.md",
+    "./index.*",
+    "./array-selector.*",
+    "./default-shallow.*",
+    "./types.*"
   ],
   "main": "./index.js",
   "module": "./index.mjs",
@@ -36,10 +42,10 @@
       "import": "./array-selector.mjs",
       "require": "./array-selector.js"
     },
-    "./shallow": {
-      "types": "./shallow.d.ts",
-      "import": "./shallow.mjs",
-      "require": "./shallow.js"
+    "./default-shallow": {
+      "types": "./default-shallow.d.ts",
+      "import": "./default-shallow.mjs",
+      "require": "./default-shallow.js"
     },
     "./types": {
       "types": "./types.d.ts",
@@ -50,7 +56,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "tsup",
-    "copy": "cp LICENSE dist && cp package.json dist && cp README.md dist",
+    "copy": "cp -r ./dist/* ./",
     "release": "pnpm run build && pnpm run copy && changeset publish",
     "lint": "tsc"
   },
