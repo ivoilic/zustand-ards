@@ -50,7 +50,8 @@
   "scripts": {
     "prepare": "husky install",
     "build": "tsup",
-    "release": "pnpm run build && changeset publish",
+    "copy": "cp ./{LICENSE,package.json,README.md} dist",
+    "release": "pnpm run build && pnpm run copy && changeset publish",
     "lint": "tsc"
   },
   "peerDependencies": {
