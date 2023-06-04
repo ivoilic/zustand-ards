@@ -50,7 +50,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "tsup",
-    "copy": "cp ./{LICENSE,package.json,README.md} dist",
+    "copy": "cp LICENSE dist && cp package.json dist && cp README.md dist",
     "release": "pnpm run build && pnpm run copy && changeset publish",
     "lint": "tsc"
   },
