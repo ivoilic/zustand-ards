@@ -1,13 +1,33 @@
-# zustand-ards
+# 💁 zustand-ards
 
-A library of simple opinionated utilities for [zustand](https://github.com/pmndrs/zustand). zustand-ards are typesafe and designed to be easily added to an existing codebase to improve the experience of developing with zustand.
+A library of simple opinionated utilities for zustand. zustand-ards are typesafe and designed to be easily added to an existing codebase to improve the experience of developing with zustand.
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ivoilic/zustand-ards/main.yml?branch=main&style=flat&colorA=000000&colorB=000000)](https://github.com/ivoilic/zustand-ards/actions?query=workflow%3ACI)
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-ards?label=bundle%20size&style=flat&colorA=000000&colorB=000000)](https://bundlephobia.com/result?p=zustand-ards)
 [![Version](https://img.shields.io/npm/v/zustand-ards?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/zustand-ards)
 [![Downloads](https://img.shields.io/npm/dt/zustand-ards.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/zustand-ards)
 
-## 🪝 Hook Enhancements
+## ⚒️ Setup
+
+### Install
+
+```bash
+pnpm i zustand-ards
+# or
+npm i zustand-ards
+```
+
+### Basic Usage
+
+```ts
+import { withArraySelector } from 'zustand-ards';
+
+const useWithZustandards = withZustandards(useStore);
+
+const { bears, increaseBears } = useWithZustandards(['bears', 'increaseBears']);
+```
+
+## 🪝 Store Hook Enhancements
 
 <details>
 <summary><i>Expand this for the example store refrenced in the documentation.</i></summary>
@@ -32,9 +52,13 @@ const useExampleStore = create<ExampleStoreState>()((set) => ({
 
 </details>
 
+### 💁 `withZustandards`
+
+This is the recommended zustand-ards setup. It combines `withArraySelector` and `withDefaultShallow`.
+
 ### 📝 `withArraySelector`
 
-This enhances the hook by adding a new style of selector: an array of keys from the provided store. It elimnates the need to use multiple hooks or a complex selector function.
+This enhances the store hook by adding another style of selector: an array of keys from the provided store. It elimnates the need to use multiple hooks or a complex selector function.
 
 ```ts
 import { withArraySelector } from 'zustand-ards';
@@ -50,7 +74,7 @@ The original selector functionality still works so you can use the hook with eit
 
 ### 🏊 `withDefaultShallow`
 
-This enhances the hook so access to the provided store is shallow by default. It is effectively the same as passing `shallow` from `zustand/shallow` to the original hook every time.
+This enhances the store hook so access to the provided store is shallow by default. It is effectively the same as passing `shallow` from `zustand/shallow` to the original hook every time.
 
 ```ts
 import { withDefaultShallow } from 'zustand-ards';
@@ -71,25 +95,6 @@ const { wizards } = useShallowStore(
 );
 ```
 
-## 🔗 Combining the Hook Enhancements
-
-If you want to use multiple zustand-ards hook enhancements together you totally can!
-
-```ts
-import { withDefaultShallow, withArraySelector } from 'zustand-ards';
-
-// Make the the hook shallow by default
-const useShallowStore = withDefaultShallow(useExampleStore);
-
-// Add the optional array selector to the hook
-const useYourCustomStore = withArraySelector(useShallowStore);
-
-// Use your custom hook!
-const { bears, increaseBears } = useYourCustomStore(['bears', 'increaseBears']);
-```
-
-⚠️ Warning: _Currently `enchanceHookWithArraySelector` has to be used last as it adds a new selector._
-
 ## Contributing
 
 Feel free to submit PRs or Issues if you find any bugs or have ideas for new zustand-ards. Please keep in mind the goal of this project is to create simple standalone enhancements for zustand that improve the developer experience.
@@ -100,4 +105,4 @@ Copyright © [Ivo Ilić](https://github.com/ivoilic) 2023
 
 zustand-ards is [MIT licensed](https://github.com/ivoilic/zustand-ards/blob/main/LICENSE).
 
-zustand-ards is in no way officially associated with or endorsed by Poimandres or zustand.
+zustand-ards is in no way officially associated with or endorsed by Poimandres or [zustand](https://github.com/pmndrs/zustand).
