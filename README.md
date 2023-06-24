@@ -20,7 +20,7 @@ npm i zustand-ards
 ### Basic Usage
 
 ```ts
-import { withArraySelector } from 'zustand-ards';
+import { withZustandards } from 'zustand-ards';
 
 const useWithZustandards = withZustandards(useStore);
 
