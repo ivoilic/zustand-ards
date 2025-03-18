@@ -1,3 +1,5 @@
+import type { StoreApi } from 'zustand';
+
 /**
  * Copied from the zustand file 'react.d.ts' on line 2
  */
@@ -13,3 +15,5 @@ export type ExtractState<S> = S extends {
 export type PartObjFromArrOfKeys<Obj, KeyArray extends readonly (keyof Obj)[]> = {
   [Key in KeyArray[number]]: Obj[Key];
 };
+
+export type ReadonlyStoreApi<T> = Pick<StoreApi<T>, 'getState' | 'getInitialState' | 'subscribe'>;
