@@ -12,9 +12,9 @@ A library of simple opinionated utilities for zustand. zustand-ards are typesafe
 ### Install
 
 ```bash
-pnpm i zustand-ards
+pnpm i zustand-ards zustand use-sync-external-store
 # or
-npm i zustand-ards
+npm i zustand-ards zustand use-sync-external-store
 ```
 
 ### Basic Usage
@@ -30,10 +30,10 @@ const { bears, increaseBears } = useWithZustandards(['bears', 'increaseBears']);
 ## 🪝 Store Hook Enhancements
 
 <details>
-<summary><i>Expand this for the example store refrenced in the documentation.</i></summary>
+<summary><i>Expand this for the example store referenced in the documentation.</i></summary>
 
 ```ts
-import { create } from 'zustand';
+import { createWithEqualityFn } from 'zustand/traditional';
 
 interface ExampleStoreState {
   bears: number;
@@ -42,7 +42,7 @@ interface ExampleStoreState {
   increaseWizards: (by: number) => void;
 }
 
-const useExampleStore = create<ExampleStoreState>()((set) => ({
+const useExampleStore = createWithEqualityFn<ExampleStoreState>()((set) => ({
   bears: 0,
   wizards: 0,
   increaseBears: (by) => set((state) => ({ bears: state.bears + by })),
@@ -58,7 +58,7 @@ This is the recommended zustand-ards setup. It combines `withArraySelector` and 
 
 ### 📝 `withArraySelector`
 
-This enhances the store hook by adding another style of selector: an array of keys from the provided store. It elimnates the need to use multiple hooks or a complex selector function.
+This enhances the traditional store hook by adding another style of selector: an array of keys from the provided store. It elimnates the need to use multiple hooks or a complex selector function.
 
 ```ts
 import { withArraySelector } from 'zustand-ards';
@@ -74,7 +74,7 @@ The original selector functionality still works so you can use the hook with eit
 
 ### 🏊 `withDefaultShallow`
 
-This enhances the store hook so access to the provided store is shallow by default. It is effectively the same as passing `shallow` from `zustand/shallow` to the original hook every time.
+This enhances the traditional store hook so access to the provided store is shallow by default. It is effectively the same as passing `shallow` from `zustand/shallow` to the original hook every time.
 
 ```ts
 import { withDefaultShallow } from 'zustand-ards';
