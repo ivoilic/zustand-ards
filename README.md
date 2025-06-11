@@ -34,6 +34,7 @@ const { bears, increaseBears } = useWithZustandards(['bears', 'increaseBears']);
 
 ```ts
 import { createWithEqualityFn } from 'zustand/traditional';
+import { shallow } from 'zustand/vanilla/shallow';
 
 interface ExampleStoreState {
   bears: number;
@@ -47,7 +48,7 @@ const useExampleStore = createWithEqualityFn<ExampleStoreState>()((set) => ({
   wizards: 0,
   increaseBears: (by) => set((state) => ({ bears: state.bears + by })),
   increaseWizards: (by) => set((state) => ({ wizards: state.wizards + by })),
-}));
+}), shallow);
 ```
 
 </details>
