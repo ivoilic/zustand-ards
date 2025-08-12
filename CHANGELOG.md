@@ -1,5 +1,11 @@
 # zustand-ards
 
+## 2.0.1
+
+### Patch Changes
+
+- 38eaac1: Bump brace-expansion from 2.0.1 to 2.0.2
+
 ## 2.0.0
 
 ### Major Changes
